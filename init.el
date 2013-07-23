@@ -132,3 +132,48 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+
+
+
+
+
+;; -------------------------------------------------------------------------
+;;  For aleechou
+;; -------------------------------------------------------------------------
+
+(setq column-number-mode t)
+(setq mouse-yank-at-point t)
+(setq kill-ring-max 200)
+(mouse-avoidance-mode 'animate)
+(setq frame-title-format "emacs@%b")
+
+;; ----------------------------- 
+;; 防止鼠标滚动太快
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)((control)))
+mouse-wheel-progressive-speed nil
+scroll-step 1)
+
+;; 平滑滚动
+(defun smooth-scroll (increment)
+  (scroll-up increment) (sit-for 0.05)
+  (scroll-up increment) (sit-for 0.02)
+  (scroll-up increment) (sit-for 0.02)
+  (scroll-up increment) (sit-for 0.05)
+  (scroll-up increment) (sit-for 0.06)
+  (scroll-up increment))
+
+(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
+(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
+
+
+;; --------------------------
+;; 滚屏
+(defun gcm-scroll-down ()
+      (interactive)
+      (scroll-up 4))
+(defun gcm-scroll-up ()
+      (interactive)
+      (scroll-down 4))
+(global-set-key [(control down)] 'gcm-scroll-down)
+(global-set-key [(control up)]   'gcm-scroll-up)
+
