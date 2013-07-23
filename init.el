@@ -1,3 +1,4 @@
+
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -167,3 +168,24 @@ scroll-step 2)
 
 ;; 显示行号
 (global-linum-mode 1)
+
+
+
+(split-window-vertically)
+(split-window-horizontally)
+
+
+;; For my language code setting (UTF-8)
+(setq current-language-environment "UTF-8")
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+
+
+
+
+
+
