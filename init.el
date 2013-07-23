@@ -164,3 +164,6 @@ scroll-step 2)
 (global-set-key [(control down)] 'gcm-scroll-down)
 (global-set-key [(control up)]   'gcm-scroll-up)
 
+
+;; 显示行号
+(global-linum-mode 1)
