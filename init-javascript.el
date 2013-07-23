@@ -13,7 +13,7 @@
   :type 'symbol
   :group 'programming
   :options '(js2-mode js-mode))
-(defvar preferred-javascript-indent-level 2)
+(defvar preferred-javascript-indent-level 4)
 
 ;; Need to first remove from list if present, since elpa adds entries too, which
 ;; may be in an arbitrary order
@@ -91,3 +91,5 @@
 
 
 (provide 'init-javascript)
+
+
