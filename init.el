@@ -184,8 +184,8 @@ scroll-step 2)
 (prefer-coding-system 'utf-8)
 
 
+(global-set-key [?\S- ] 'set-mark-command)
 
 
-
-
-
+(global-set-key [M-left] ' move-beginning-of-line)
+(global-set-key [M-right] 'move-end-of-line)
