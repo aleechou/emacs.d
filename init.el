@@ -187,5 +187,30 @@ scroll-step 2)
 (global-set-key [?\S- ] 'set-mark-command)
 
 
-(global-set-key [M-left] ' move-beginning-of-line)
+(global-set-key [M-left] 'move-beginning-of-line)
 (global-set-key [M-right] 'move-end-of-line)
+
+
+
+;; weibo
+(add-to-list 'load-path "/Users/alee/weibo.emacs")
+(require 'weibo)
+
+
+
+;; undo,  open undo tree
+(global-set-key [(control z)] 'undo-tree-undo)
+(global-set-key [(control u)] 'undo-tree-visualize)
+
+;; copy
+(global-set-key [(meta c)] 'whole-line-or-region-kill-ring-save)
+(global-set-key [(control c)] 'whole-line-or-region-kill-ring-save)
+
+;; paste
+(global-set-key [(meta v)] 'whole-line-or-region-yank)
+(global-set-key [(control v)] 'whole-line-or-region-yank)
+
+
+
+
+
