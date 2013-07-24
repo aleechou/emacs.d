@@ -210,7 +210,8 @@ scroll-step 2)
 (global-set-key [(meta v)] 'whole-line-or-region-yank)
 (global-set-key [(control v)] 'whole-line-or-region-yank)
 
-
-
+;; open file
+(global-set-key [(control f)] 'find-file)
+(global-set-key [(control b)] 'ibuffer)
 
 
