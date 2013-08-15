@@ -167,3 +167,11 @@ scroll-step 2)
 
 ;; 显示行号
 (global-linum-mode 1)
+
+
+(setq tab-width 4)
+
+
+
+;; file
+(global-set-key [(control b)] 'ibuffer)
