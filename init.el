@@ -146,6 +146,7 @@
 (setq kill-ring-max 200)
 (mouse-avoidance-mode 'animate)
 (setq frame-title-format "emacs@%b")
+(scroll-bar-mode t)
 
 ;; ----------------------------- 
 ;; 防止鼠标滚动太快
@@ -169,9 +170,21 @@ scroll-step 2)
 (global-linum-mode 1)
 
 
-(setq tab-width 4)
+
+(split-window-vertically)
+(split-window-horizontally)
 
 
+;; For my language code setting (UTF-8)
+(setq current-language-environment "UTF-8")
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
-;; file
+
+;; open file
 (global-set-key [(control b)] 'ibuffer)
+
+
