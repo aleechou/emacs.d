@@ -196,16 +196,16 @@ scroll-step 1)
 
 
 ;; undo,  open undo tree
-(global-set-key [(control z)] 'undo-tree-undo)
-(global-set-key [(control u)] 'undo-tree-visualize)
+;; (global-set-key [(control z)] 'undo-tree-undo)
+;; (global-set-key [(control u)] 'undo-tree-visualize)
 
 ;; copy
-(global-set-key [(meta c)] 'whole-line-or-region-kill-ring-save)
-(global-set-key [(control c)] 'whole-line-or-region-kill-ring-save)
+;;(global-set-key [(meta c)] 'whole-line-or-region-kill-ring-save)
+;; (global-set-key [(control c)] 'whole-line-or-region-kill-ring-save)
 
 ;; paste
-(global-set-key [(meta v)] 'whole-line-or-region-yank)
-(global-set-key [(control v)] 'whole-line-or-region-yank)
+;; (global-set-key [(meta v)] 'whole-line-or-region-yank)
+;; (global-set-key [(control v)] 'whole-line-or-region-yank)
 
 ;; open file
 (global-set-key [(control f)] 'find-file)
