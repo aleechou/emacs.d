@@ -208,8 +208,8 @@ scroll-step 1)
 ;; (global-set-key [(control v)] 'whole-line-or-region-yank)
 
 ;; open file
-(global-set-key [(control f)] 'find-file)
-(global-set-key [(control b)] 'ibuffer)
+;; (global-set-key [(control f)] 'find-file)
+;; (global-set-key [(control b)] 'ibuffer)
 
 
 ;; zencoding
@@ -217,3 +217,6 @@ scroll-step 1)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-hook 'html-mode-hook 'zencoding-mode)
 
+
+(set-default-font "Source Code Pro-12")
+(set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
