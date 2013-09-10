@@ -168,8 +168,8 @@ scroll-step 1)
 
 
 
-(split-window-vertically)
-(split-window-horizontally)
+;; (split-window-vertically)
+;; (split-window-horizontally)
 
 
 ;; For my language code setting (UTF-8)
@@ -220,3 +220,12 @@ scroll-step 1)
 
 (set-default-font "Source Code Pro-12")
 (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
+
+
+;; el-get
+
+
+;; highlight-parentheses
+(require 'highlight-parentheses)
+(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
+
