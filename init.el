@@ -195,5 +195,5 @@ scroll-step 2)
 (add-hook 'html-mode-hook 'zencoding-mode)
 
 
-(set-default-font "Source Code Pro-12")
-(set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
+;; (set-default-font "Source Code Pro-12")
+;; (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
