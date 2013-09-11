@@ -171,8 +171,8 @@ scroll-step 2)
 
 
 
-(split-window-vertically)
-(split-window-horizontally)
+;; (split-window-vertically)
+;; (split-window-horizontally)
 
 
 ;; For my language code setting (UTF-8)
