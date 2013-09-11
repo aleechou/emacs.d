@@ -209,3 +209,12 @@ scroll-step 2)
 (require 'browse-kill-ring)
 (global-set-key [(control c)(k)] 'browse-kill-ring)
 (browse-kill-ring-default-keybindings)
+
+
+;; tabbar
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key (kbd "") 'tabbar-backward-group)
+(global-set-key (kbd "") 'tabbar-forward-group)
+(global-set-key (kbd "") 'tabbar-backward)
+(global-set-key (kbd "") 'tabbar-forward)
