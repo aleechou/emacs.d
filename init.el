@@ -197,3 +197,15 @@ scroll-step 2)
 
 ;; (set-default-font "Source Code Pro-12")
 ;; (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
+
+
+
+;; highlight-parentheses
+(require 'highlight-parentheses)
+(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
+
+
+;; browse kill ring
+(require 'browse-kill-ring)
+(global-set-key [(control c)(k)] 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
