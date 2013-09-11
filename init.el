@@ -218,3 +218,31 @@ scroll-step 2)
 (global-set-key (kbd "") 'tabbar-forward-group)
 (global-set-key (kbd "") 'tabbar-backward)
 (global-set-key (kbd "") 'tabbar-forward)
+
+
+;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(setq el-get-sources
+      '((:name cobalt-theme
+               :type git
+               :url "http://github.com/nickewing/color-theme-cobalt.git")
+        (:name js2-mode
+               :type git
+               :url "http://github.com/mooz/js2-mode.git")))
+
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   (lambda (s)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+(setq
+ my:el-get-packages
+      '())
+(setq my:el-get-packages
+      (append
+       my:el-get-packages
+       (loop for src in el-get-sources collect (el-get-source-name src))))
+
+(el-get 'sync my:el-get-packages)
+
