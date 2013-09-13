@@ -215,8 +215,8 @@ scroll-step 2)
 (tabbar-mode)
 (global-set-key (kbd "") 'tabbar-backward-group)
 (global-set-key (kbd "") 'tabbar-forward-group)
-(global-set-key (kbd "") 'tabbar-backward)
-(global-set-key (kbd "") 'tabbar-forward)
+(global-set-key (kbd "s-b") 'tabbar-backward)
+(global-set-key (kbd "s-f") 'tabbar-forward)
 
 
 ;; el-get
@@ -237,7 +237,7 @@ scroll-step 2)
      (eval-print-last-sexp))))
 (setq
  my:el-get-packages
-      '())
+      '(ecb))
 (setq my:el-get-packages
       (append
        my:el-get-packages
@@ -250,12 +250,13 @@ scroll-step 2)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-hook 'html-mode-hook 'zencoding-mode)
 
-
-(set-default-font "Source Code Pro-12")
-(set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
-
-
 ;; highlight-parentheses
 (require 'highlight-parentheses)
 (add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
 
+
+
+
+// for mac 
+(set-default-font "Source Code Pro-12")
+(set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
