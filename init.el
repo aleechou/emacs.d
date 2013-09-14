@@ -257,6 +257,6 @@ scroll-step 2)
 
 
 
-// for mac 
+;; for mac 
 (set-default-font "Source Code Pro-12")
 (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
