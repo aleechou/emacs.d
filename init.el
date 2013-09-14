@@ -204,7 +204,6 @@ scroll-step 2)
 (require 'highlight-parentheses)
 (add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
 
-
 ;; browse kill ring
 (require 'browse-kill-ring)
 (global-set-key [(control c)(k)] 'browse-kill-ring)
@@ -238,7 +237,7 @@ scroll-step 2)
      (eval-print-last-sexp))))
 (setq
  my:el-get-packages
-      '(ecb))
+      '())
 (setq my:el-get-packages
       (append
        my:el-get-packages
@@ -246,7 +245,11 @@ scroll-step 2)
 
 (el-get 'sync my:el-get-packages)
 
+;; zencoding
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(add-hook 'html-mode-hook 'zencoding-mode)
 
-;; ecb
-(setq ecb-auto-activate t
-      ecb-tip-of-the-day nil)
+;; highlight-parentheses
+(require 'highlight-parentheses)
+(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
