@@ -237,7 +237,7 @@ scroll-step 2)
      (eval-print-last-sexp))))
 (setq
  my:el-get-packages
-      '(ecb))
+      '())
 (setq my:el-get-packages
       (append
        my:el-get-packages
