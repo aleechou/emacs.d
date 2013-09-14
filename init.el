@@ -1,4 +1,3 @@
-
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -141,27 +140,31 @@
 ;; -------------------------------------------------------------------------
 ;;  For aleechou
 ;; -------------------------------------------------------------------------
+
 (setq column-number-mode t)
 (setq mouse-yank-at-point t)
 (setq kill-ring-max 200)
-(mouse-avoidance-mode 'animat)
+(mouse-avoidance-mode 'animate)
+(setq frame-title-format "emacs@%b")
 (scroll-bar-mode t)
 
-;; -----------------------------
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)((control)))
+;; ----------------------------- 
+;; 防止鼠标滚动太快
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 2)((control)))
 mouse-wheel-progressive-speed nil
-scroll-step 1)
+scroll-step 2)
 
-(defun smooth-scroll (increment)
-  (scroll-up increment) (sit-for 0.05)
-  (scroll-up increment) (sit-for 0.02)
-  (scroll-up increment) (sit-for 0.02)
-  (scroll-up increment) (sit-for 0.05)
-  (scroll-up increment) (sit-for 0.06)
-  (scroll-up increment))
+;; --------------------------
+;; 滚屏
+(defun gcm-scroll-down ()
+      (interactive)
+      (scroll-up 4))
+(defun gcm-scroll-up ()
+      (interactive)
+      (scroll-down 4))
+(global-set-key [(control down)] 'gcm-scroll-down)
+(global-set-key [(control up)]   'gcm-scroll-up)
 
-(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
-(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
 
 ;; 显示行号
 (global-linum-mode 1)
@@ -181,32 +184,6 @@ scroll-step 1)
 (prefer-coding-system 'utf-8)
 
 
-(global-set-key [?\S- ] 'set-mark-command)
-
-
-(global-set-key [M-left] 'move-beginning-of-line)
-(global-set-key [M-right] 'move-end-of-line)
-
-
-
-;; weibo
-(add-to-list 'load-path "/Users/alee/weibo.emacs")
-(require 'weibo)
-
-
-
-;; undo,  open undo tree
-;; (global-set-key [(control z)] 'undo-tree-undo)
-;; (global-set-key [(control u)] 'undo-tree-visualize)
-
-;; copy
-;;(global-set-key [(meta c)] 'whole-line-or-region-kill-ring-save)
-;; (global-set-key [(control c)] 'whole-line-or-region-kill-ring-save)
-
-;; paste
-;; (global-set-key [(meta v)] 'whole-line-or-region-yank)
-;; (global-set-key [(control v)] 'whole-line-or-region-yank)
-
 ;; open file
 ;; (global-set-key [(control f)] 'find-file)
 ;; (global-set-key [(control b)] 'ibuffer)
@@ -218,11 +195,64 @@ scroll-step 1)
 (add-hook 'html-mode-hook 'zencoding-mode)
 
 
-(set-default-font "Source Code Pro-12")
-(set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
+;; (set-default-font "Source Code Pro-12")
+;; (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
+
+
+
+;; highlight-parentheses
+(require 'highlight-parentheses)
+(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
+
+;; browse kill ring
+(require 'browse-kill-ring)
+(global-set-key [(control c)(k)] 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+
+
+;; tabbar
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key (kbd "") 'tabbar-backward-group)
+(global-set-key (kbd "") 'tabbar-forward-group)
+(global-set-key (kbd "") 'tabbar-backward)
+(global-set-key (kbd "") 'tabbar-forward)
 
 
 ;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(setq el-get-sources
+      '((:name cobalt-theme
+               :type git
+               :url "http://github.com/nickewing/color-theme-cobalt.git")
+        (:name js2-mode
+               :type git
+               :url "http://github.com/mooz/js2-mode.git")))
+
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   (lambda (s)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+(setq
+ my:el-get-packages
+      '())
+(setq my:el-get-packages
+      (append
+       my:el-get-packages
+       (loop for src in el-get-sources collect (el-get-source-name src))))
+
+(el-get 'sync my:el-get-packages)
+
+;; zencoding
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(add-hook 'html-mode-hook 'zencoding-mode)
+
+
+(set-default-font "Source Code Pro-12")
+(set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
 
 
 ;; highlight-parentheses
