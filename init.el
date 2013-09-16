@@ -169,12 +169,6 @@ scroll-step 2)
 ;; 显示行号
 (global-linum-mode 1)
 
-
-
-;; (split-window-vertically)
-;; (split-window-horizontally)
-
-
 ;; For my language code setting (UTF-8)
 (setq current-language-environment "UTF-8")
 (setq locale-coding-system 'utf-8)
@@ -183,32 +177,10 @@ scroll-step 2)
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-
-;; open file
-;; (global-set-key [(control f)] 'find-file)
-;; (global-set-key [(control b)] 'ibuffer)
-
-
-;; zencoding
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode)
-(add-hook 'html-mode-hook 'zencoding-mode)
-
-
-;; (set-default-font "Source Code Pro-12")
-;; (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
-
-
-
-;; highlight-parentheses
-(require 'highlight-parentheses)
-(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
-
 ;; browse kill ring
 (require 'browse-kill-ring)
 (global-set-key [(control c)(k)] 'browse-kill-ring)
 (browse-kill-ring-default-keybindings)
-
 
 ;; tabbar
 (require 'tabbar)
@@ -217,6 +189,16 @@ scroll-step 2)
 (global-set-key (kbd "") 'tabbar-forward-group)
 (global-set-key (kbd "s-b") 'tabbar-backward)
 (global-set-key (kbd "s-f") 'tabbar-forward)
+
+;; zencoding
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(add-hook 'html-mode-hook 'zencoding-mode)
+
+
+;; highlight-parentheses
+(require 'highlight-parentheses)
+(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
 
 
 ;; el-get
@@ -237,7 +219,7 @@ scroll-step 2)
      (eval-print-last-sexp))))
 (setq
  my:el-get-packages
-      '())
+      '(coffee-mode))
 (setq my:el-get-packages
       (append
        my:el-get-packages
@@ -245,11 +227,6 @@ scroll-step 2)
 
 (el-get 'sync my:el-get-packages)
 
-;; zencoding
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode)
-(add-hook 'html-mode-hook 'zencoding-mode)
 
-;; highlight-parentheses
-(require 'highlight-parentheses)
-(add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
+;; coffee mode
+(define-key coffee-mode-map (kbd "C-M-x") '(print "hi"))
