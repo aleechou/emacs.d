@@ -255,8 +255,10 @@ scroll-step 2)
 (add-hook 'javascript-mode '(lambda () (highlight-parentheses-mode 1)))
 
 
+;; coffee mode
+(define-key coffee-mode-map (kbd "C-M-x") 'coffee-compile-file)
 
 
-;; for mac 
+;; for mac
 (set-default-font "Source Code Pro-12")
 (set-fontset-font "fontset-default" 'gb18030' ("STHeiti" . "unicode-bmp"))
