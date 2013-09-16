@@ -229,4 +229,4 @@ scroll-step 2)
 
 
 ;; coffee mode
-(define-key coffee-mode-map (kbd "C-M-x") '(print "hi"))
+(define-key coffee-mode-map (kbd "C-M-x") 'coffee-compile-file)
